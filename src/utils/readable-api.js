@@ -1,0 +1,4 @@
+/*
+You can use the BooksAPI.js file from the MyReads Project as a guide
+for designing your own API calls for this project.
+*/

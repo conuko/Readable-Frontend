@@ -24,8 +24,8 @@ const headers = {
   .then((res) => res.json())
   .then((data) => data.books); */
 export const getInitialData = () => fetch(`${api}/posts`, { headers })
-  .then((res) => res.json())
-  .then((data) => data.posts);
+  .then((res) => res.json());
+/*   .then((data) => data.posts); */
 
 // GET /:category/posts
 /* USAGE:
@@ -38,8 +38,8 @@ export const getPostByCategory = (category) => fetch(`${api}/${category}/posts`,
     'Content-Type': 'applications/json',
   },
 })
-  .then((res) => res.json())
-  .then((data) => data.posts);
+  .then((res) => res.json());
+/*   .then((data) => data.posts); */
 
 /* POST /posts
 USAGE:
@@ -53,16 +53,34 @@ export const addNewPost = (newPost) => fetch(`${api}/posts`, {
   },
   body: JSON.stringify({ newPost }),
 })
-  .then((res) => res.json())
-  .then((data) => data.posts);
+  .then((res) => res.json());
+/*   .then((data) => data.posts); */
 
 /* GET /posts/:id
 USAGE:
 Get the details of a single post
 */
 export const getSinglePost = () => fetch(`${api}/posts/${id}`, { headers })
-  .then((res) => res.json())
-  .then((data) => data.post);
+  .then((res) => res.json());
+/*   .then((data) => data.post); */
+
+/*
+POST /posts/:id
+  USAGE:
+    Used for voting on a post
+  PARAMS:
+    option - String: Either "upVote" or "downVote"
+*/
+export const voteOnAPost = (id, option) => fetch(`${api}/posts/${id}`, {
+  method: 'POST',
+  headers: {
+    ...headers,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ option }),
+})
+  .then((res) => res.json());
+/*   .then((data) => data.posts.voteScore); */
 
 /* export const get = (bookId) => fetch(`${api}/books/${bookId}`, { headers })
   .then((res) => res.json())

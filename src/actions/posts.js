@@ -1,4 +1,4 @@
-import { getPostByCategory, addNewPost } from '../utils/readable-api';
+import { getPostsByCategory } from '../utils/API';
 
 export const GET_POSTS = 'GET_POSTS';
 /* export const GET_POST_BY_CATEGORY = 'GET_POST_BY_CATEGORY'; */
@@ -9,6 +9,7 @@ export const VOTE_POST = 'VOTE_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const INCREMENT_COMMENT_COUNTER = 'INCREMENT_COMMENT_COUNTER';
 
+// get all Posts
 export function getPosts(posts) {
   return {
     type: GET_POSTS,
@@ -24,7 +25,8 @@ export function getPosts(posts) {
   };
 } */
 
-export const handleGetPostByCategory = (category) => (dispatch) => getPostByCategory(category)
+// get all Posts from one Category
+export const handleGetPostByCategory = (category) => (dispatch) => getPostsByCategory(category)
   .then(({ posts }) => {
     dispatch(getPosts(posts));
   });

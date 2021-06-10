@@ -48,7 +48,62 @@ export function createPost({
   return axios.post('/posts', data);
 }
 
+// edit a Post
+export function changePost(id, { title, body }) {
+  return axios.put(`/posts/${id}`, { title, body });
+}
+
+// vote a Post
+export function upDownPost(id, vote) {
+  return axios.post(`/posts/${id}`, { option: vote });
+}
+
+// delete a Post
+export function removePost(id) {
+  return axios.delete(`/posts/${id}`);
+}
+
+/* <==================== COMMENTS ====================> */
+
+// get all Comments of a Post
+export function getComments(id) {
+  return axios.get(`/posts/${id}/comments`);
+}
+
+// get one Comment
+export function getComment(commentId) {
+  return axios.get(`/comments/${commentId}`);
+}
+
+// create a Comment
+export function createComment(postId, { body, author }) {
+  return axios.post('/comments', {
+    id: generateID,
+    parentId: postId,
+    timestamp: Date.now(),
+    body,
+    author,
+  });
+}
+
+// edit a Comment
+export function editComment(commentId, { body }) {
+  return axios.put(`/comments/${commentId}`, {
+    timestrap: Date.now(),
+    body,
+  });
+}
+
+// vote a Comment
+export function voteComment(commentId, vote) {
+  return axios.post(`/comments/${commentId}`, { option: vote });
+}
+
+// delete a Comment
+export function deleteComment(commentId) {
+  return axios.delete(`/comments/${commentId}`);
+}
+
 // create the next steps with help of the following ressources:
 // https://github.com/alanleite/udacity-react-readable/blob/master/frontend/src/module/api.js
 // https://github.com/filipenatanael/reactnd-project-readable/blob/bdbdba69125d02cf6b9d27aece7e5afd8a5ddeb6/src/actions/post.js#L89
-

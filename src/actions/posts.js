@@ -66,8 +66,8 @@ export const handleGetPostByCategory = (category) => (dispatch) => getPostsByCat
 
 // add a Post
 export const handleAddPost = (newPost) => (dispatch) => createPost(newPost)
-  .then(({ newPost }) => {
-    dispatch(addPost(newPost));
+  .then(({ post }) => {
+    dispatch(addPost(post));
   });
 
 // delete a Post

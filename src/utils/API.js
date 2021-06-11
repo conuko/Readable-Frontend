@@ -49,8 +49,12 @@ export function createPost({
 }
 
 // edit a Post
-export function changePost(id, { title, body }) {
-  return axios.put(`/posts/${id}`, { title, body });
+export function changePost(id, {
+  title, body, author, category,
+}) {
+  return axios.put(`/posts/${id}`, {
+    title, body, author, category,
+  });
 }
 
 // vote a Post
@@ -71,8 +75,8 @@ export function countComment(id, commentCount) {
 /* <==================== COMMENTS ====================> */
 
 // get all Comments of a Post
-export function getComments(id) {
-  return axios.get(`/posts/${id}/comments`);
+export function getComments(postId) {
+  return axios.get(`/posts/${postId}/comments`);
 }
 
 // create a Comment
@@ -87,19 +91,20 @@ export function createComment(postId, { body, author }) {
 }
 
 // edit a Comment
-export function editComment(commentId, { body }) {
+export function editComment(commentId, { body, author }) {
   return axios.put(`/comments/${commentId}`, {
     timestrap: Date.now(),
     body,
+    author,
   });
 }
 
 // vote a Comment
-export function voteComment(commentId, vote) {
+export function upDownComment(commentId, vote) {
   return axios.post(`/comments/${commentId}`, { option: vote });
 }
 
 // delete a Comment
-export function deleteComment(commentId) {
+export function removeComment(commentId) {
   return axios.delete(`/comments/${commentId}`);
 }

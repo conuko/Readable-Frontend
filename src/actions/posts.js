@@ -66,8 +66,8 @@ export const handleGetPostByCategory = (category) => (dispatch) => getPostsByCat
 
 // add a Post
 export const handleAddPost = (newPost) => (dispatch) => createPost(newPost)
-  .then(({ post }) => {
-    dispatch(addPost(post));
+  .then(({ newPost }) => {
+    dispatch(addPost(newPost));
   });
 
 // delete a Post
@@ -83,7 +83,9 @@ export const handleVotePost = (id, vote) => (dispatch) => upDownPost(id, vote)
   });
 
 // edit a Post
-export const handleEditPost = (id, title, body) => (dispatch) => changePost(id, { title, body })
+export const handleEditPost = (id, title, body, author, category) => (dispatch) => changePost(id, {
+  title, body, author, category,
+})
   .then(({ post }) => {
     dispatch(editPost(post));
   });

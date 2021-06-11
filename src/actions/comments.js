@@ -14,9 +14,9 @@ export const GET_POST_COMMENTS = 'GET_POST_COMMENTS';
 export const VOTE_COMMENT = 'VOTE_COMMENT';
 
 /* <==================== ACTION CREATORS ====================> */
-const getPostComments = (post) => ({
+const getPostComments = (comments) => ({
   type: GET_POST_COMMENTS,
-  post,
+  comments,
 });
 
 const addComment = (comment) => ({
@@ -42,8 +42,8 @@ const deleteComment = (comment) => ({
 
 /* <==================== ASYNC ACTION CREATORS ====================> */
 export const handleGetComments = (postId) => (dispatch) => getComments(postId)
-  .then(({ post }) => {
-    dispatch(getPostComments(post));
+  .then(({ comments }) => {
+    dispatch(getPostComments(comments));
   });
 
 export const handleAddComment = (

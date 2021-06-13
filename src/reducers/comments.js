@@ -17,6 +17,7 @@ export default function categories(state = {}, action) {
       return {
         ...state,
         [action.comment.id]: {
+          ...state[action.comment.id],
           ...action.comment,
         },
       };
@@ -24,6 +25,7 @@ export default function categories(state = {}, action) {
       return {
         ...state,
         [action.comment.id]: {
+          ...state[action.comment.id],
           body: action.comment.body,
           author: action.comment.author,
         },
@@ -32,6 +34,7 @@ export default function categories(state = {}, action) {
       return {
         ...state,
         [action.comment.id]: {
+          ...state[action.comment.id],
           voteScore: action.option,
         },
       };

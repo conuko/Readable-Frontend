@@ -67,7 +67,7 @@ export function removePost(id) {
   return axios.delete(`/posts/${id}`);
 }
 
-// increment the commentCount
+// increment/decrement the commentCount
 export function countComment(id, commentCount) {
   return axios.put(`/posts/${id}`, { commentCount });
 }

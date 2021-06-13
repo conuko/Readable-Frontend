@@ -10,12 +10,13 @@ import {
 /* <==================== ACTIONS ====================> */
 export const GET_POSTS = 'GET_POSTS';
 /* export const GET_POST_BY_CATEGORY = 'GET_POST_BY_CATEGORY'; */
-export const GET_POST = 'GET_POST';
+/* export const GET_POST = 'GET_POST'; */
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const VOTE_POST = 'VOTE_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const INCREMENT_COMMENT_COUNTER = 'INCREMENT_COMMENT_COUNTER';
+export const DECREMENT_COMMENT_COUNTER = 'DECREMENT_COMMENT_COUNTER';
 
 /* <==================== ACTION CREATORS ====================> */
 // get all Posts
@@ -52,6 +53,12 @@ const editPost = (post) => ({
 });
 
 const incrementCommentCounter = ({ post, count }) => ({
+  type: DECREMENT_COMMENT_COUNTER,
+  post,
+  count,
+});
+
+const decrementCommentCounter = ({ post, count }) => ({
   type: INCREMENT_COMMENT_COUNTER,
   post,
   count,
@@ -95,4 +102,10 @@ export const handleIncrementCommentCounter = (id,
   commentCount) => (dispatch) => countComment(id, commentCount)
   .then(({ post, count }) => {
     dispatch(incrementCommentCounter(post, count));
+  });
+
+export const handleDecrementCounter = (id,
+  commentCount) => (dispatch) => countComment(id, commentCount)
+  .then(({ post, count }) => {
+    dispatch(decrementCommentCounter(post, count));
   });

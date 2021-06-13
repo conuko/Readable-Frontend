@@ -11,4 +11,4 @@ function CategoryView() {
   );
 }
 
-export default CategoryView();
+export default CategoryView;

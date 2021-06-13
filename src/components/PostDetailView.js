@@ -18,4 +18,4 @@ function PostDetailView() {
   );
 }
 
-export default PostDetailView();
+export default PostDetailView;

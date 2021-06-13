@@ -4,9 +4,8 @@ import HomeView from './HomeView';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <HomeView />
-      </header>
+      <header className="App-header" />
+      <HomeView />
     </div>
   );
 }

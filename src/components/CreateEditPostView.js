@@ -13,4 +13,4 @@ function CreateEditPostView() {
   );
 }
 
-export default CreateEditPostView();
+export default CreateEditPostView;

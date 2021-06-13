@@ -1,11 +1,10 @@
+/* eslint-disable import/prefer-default-export */
 import { getPosts } from './posts';
 import { getCategories } from './categories';
-import { fetchPosts, fetchCategories } from '../utils/API';
+import { getInitialData } from '../utils/API';
 
-const handleInitialData = () => (dispatch) => Promise.all([fetchCategories(), fetchPosts()])
+export const handleInitialData = () => (dispatch) => getInitialData()
   .then(({ categories, posts }) => {
     dispatch(getCategories(categories));
     dispatch(getPosts(posts));
   });
-
-export default handleInitialData();

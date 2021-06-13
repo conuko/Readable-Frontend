@@ -14,7 +14,7 @@ export const GET_POST_COMMENTS = 'GET_POST_COMMENTS';
 export const VOTE_COMMENT = 'VOTE_COMMENT';
 
 /* <==================== ACTION CREATORS ====================> */
-const getPostComments = (comments) => ({
+export const getPostComments = (comments) => ({
   type: GET_POST_COMMENTS,
   comments,
 });

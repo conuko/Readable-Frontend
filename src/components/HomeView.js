@@ -6,11 +6,24 @@ order by voteScore and order by timestamp
 */
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function HomeView() {
+  const allPosts = useSelector((state) => Object.values(state.posts));
   return (
     <div>
-      <p>This is the Home View</p>
+      <h2>This is the Home View</h2>
+      <ul className="dashboard-list">
+        {allPosts.map((post) => (
+          <li key={post.id}>
+            <div>
+              POST ID:
+              {` ${post.id}`}
+            </div>
+          </li>
+        ))}
+
+      </ul>
     </div>
   );
 }

@@ -13,14 +13,16 @@ function generateID() {
 /* <==================== CATEGORIES ====================> */
 
 export function fetchCategories() {
-  return axios.get('/categories');
+  return axios.get('/categories')
+    .then((res) => res.data.categories);
 }
 
 /* <==================== POSTS ====================> */
 
 // get all Posts
 export function fetchPosts() {
-  return axios.get('/posts');
+  return axios.get('/posts')
+    .then((res) => res.data);
 }
 
 // get all Posts from one Category
@@ -76,7 +78,8 @@ export function countComment(id, commentCount) {
 
 // get all Comments of a Post
 export function getComments(postId) {
-  return axios.get(`/posts/${postId}/comments`);
+  return axios.get(`/posts/${postId}/comments`)
+    .then((res) => res.data);
 }
 
 // create a Comment
@@ -107,4 +110,14 @@ export function upDownComment(commentId, vote) {
 // delete a Comment
 export function removeComment(commentId) {
   return axios.delete(`/comments/${commentId}`);
+}
+
+export function getInitialData() {
+  return Promise.all([
+    fetchCategories(),
+    fetchPosts(),
+  ]).then(([categories, posts]) => ({
+    categories,
+    posts,
+  }));
 }

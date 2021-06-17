@@ -30,7 +30,7 @@ function HomeView() {
       <ul className="posts-list">
         {allPosts.map((post) => (
           <li key={post.id}>
-            <Post id={post.id} />
+            <Post post={post} />
           </li>
         ))}
       </ul>

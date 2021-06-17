@@ -1,21 +1,31 @@
+/* eslint-disable no-debugger */
 /*
 The Posts at HomeView page.
 */
 
 import React from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-function Post({ id }) {
-  const posts = useSelector((state) => Object.values(state.posts));
-  const post = posts[id];
+function Post({ post }) {
+  const postTitle = Object.values(post.title);
+  const postBody = Object.values(post.body);
   return (
-    <div className="post" />
+    <div className="post">
+      Title:
+      {' '}
+      {postTitle}
+      {' '}
+      <br />
+      Body:
+      {' '}
+      {postBody}
+      <br />
+    </div>
   );
 }
 
 Post.propTypes = {
-  id: PropTypes.string.isRequired,
+  post: PropTypes.object.isRequired,
 };
 
 export default Post;

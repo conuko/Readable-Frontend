@@ -17,13 +17,15 @@ function HomeView() {
       <h1>Home View</h1>
       <h2>Categories</h2>
       <div className="categories-container">
-        <ul className="categories-list">
-          {allCategories.map((category) => (
-            <li key={category.name}>
-              {category.name}
-            </li>
-          ))}
-        </ul>
+        <table className="categories-table">
+          <tr>
+            {allCategories.map((category) => (
+              <th key={category.name}>
+                {category.name}
+              </th>
+            ))}
+          </tr>
+        </table>
       </div>
 
       <h2>{`${allPosts.length} Posts`}</h2>

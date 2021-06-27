@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import {
   getPostsByCategory,
   createPost,
@@ -9,8 +10,6 @@ import {
 
 /* <==================== ACTIONS ====================> */
 export const GET_POSTS = 'GET_POSTS';
-/* export const GET_POST_BY_CATEGORY = 'GET_POST_BY_CATEGORY'; */
-/* export const GET_POST = 'GET_POST'; */
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const VOTE_POST = 'VOTE_POST';
@@ -41,10 +40,10 @@ const deletePost = (post) => ({
   post,
 });
 
-const votePost = ({ post, option }) => ({
+const votePost = (post, vote) => ({
   type: VOTE_POST,
   post,
-  option,
+  vote,
 });
 
 const editPost = (post) => ({
@@ -85,8 +84,8 @@ export const handleDeletePost = (id) => (dispatch) => removePost(id)
 
 // upvote or downvote a Post
 export const handleVotePost = (id, vote) => (dispatch) => upDownPost(id, vote)
-  .then(({ post, option }) => {
-    dispatch(votePost(post, option));
+  .then((post, vote) => {
+    dispatch(votePost(post, vote));
   });
 
 // edit a Post

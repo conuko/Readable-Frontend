@@ -18,13 +18,15 @@ function HomeView() {
       <h2>Categories</h2>
       <div className="categories-container">
         <table className="categories-table">
-          <tr>
-            {allCategories.map((category) => (
-              <th key={category.name}>
-                {category.name}
-              </th>
-            ))}
-          </tr>
+          <tbody>
+            <tr>
+              {allCategories.map((category) => (
+                <th key={category.name}>
+                  {category.name}
+                </th>
+              ))}
+            </tr>
+          </tbody>
         </table>
       </div>
 

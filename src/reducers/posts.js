@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import {
   GET_POSTS,
   ADD_POST,
@@ -31,13 +32,39 @@ export default function posts(state = {}, action) {
       };
     }
     case VOTE_POST:
+      debugger;
+      return {
+        ...state,
+        items: state.items.map((post) => {
+          if (post.id === action.postId) {
+            return {
+              ...post,
+              voteScore:
+                action.vote === 'upVote'
+                  ? post.voteScore + 1
+                  : post.voteScore - 1,
+            };
+          }
+          return post;
+        }),
+      };
+      /*     case UP_VOTE_POST:
+      debugger;
+      return {
+        ...state,
+        [action.post.data.id]: {
+          ...state[action.post.data.id].id,
+          voteScore: state[action.post.data.id].voteScore + 1,
+        },
+      };
+    case DOWN_VOTE_POST:
       return {
         ...state,
         [action.post.id]: {
           ...state[action.post.id],
-          voteScore: action.option,
+          voteScore: state[action.post.id].voteScore - 1,
         },
-      };
+      }; */
     case EDIT_POST:
       return {
         ...state,

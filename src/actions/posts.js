@@ -40,10 +40,9 @@ const deletePost = (post) => ({
   post,
 });
 
-const votePost = (post, vote) => ({
+const votePost = (post) => ({
   type: VOTE_POST,
   post,
-  vote,
 });
 
 const editPost = (post) => ({
@@ -84,8 +83,8 @@ export const handleDeletePost = (id) => (dispatch) => removePost(id)
 
 // upvote or downvote a Post
 export const handleVotePost = (id, vote) => (dispatch) => upDownPost(id, vote)
-  .then((post, vote) => {
-    dispatch(votePost(post, vote));
+  .then(({ data }) => {
+    dispatch(votePost({ data }));
   });
 
 // edit a Post

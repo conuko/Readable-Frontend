@@ -5,12 +5,18 @@ order by voteScore and order by timestamp
 - should have a control for adding a new post
 */
 
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
 import Post from './Post';
 
 function HomeView() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(handleInitialData());
+  }, []);
   const allPosts = useSelector((state) => Object.values(state.posts));
+  console.log(allPosts);
   const allCategories = useSelector((state) => Object.values(state.categories));
   return (
     <div>

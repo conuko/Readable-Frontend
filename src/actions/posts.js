@@ -12,8 +12,6 @@ import {
 export const GET_POSTS = 'GET_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
-export const VOTE_POST = 'VOTE_POST';
-export const EDIT_POST = 'EDIT_POST';
 export const INCREMENT_COMMENT_COUNTER = 'INCREMENT_COMMENT_COUNTER';
 export const DECREMENT_COMMENT_COUNTER = 'DECREMENT_COMMENT_COUNTER';
 
@@ -24,12 +22,6 @@ export const getPosts = (posts) => ({
   posts,
 });
 
-/* const getPost = ({ post, id }) => ({
-  type: GET_POST,
-  post,
-  id,
-}); */
-
 const addPost = (post) => ({
   type: ADD_POST,
   post,
@@ -37,16 +29,6 @@ const addPost = (post) => ({
 
 const deletePost = (post) => ({
   type: DELETE_POST,
-  post,
-});
-
-const votePost = (post) => ({
-  type: VOTE_POST,
-  post,
-});
-
-const editPost = (post) => ({
-  type: EDIT_POST,
   post,
 });
 
@@ -84,15 +66,15 @@ export const handleDeletePost = (id) => (dispatch) => removePost(id)
 // upvote or downvote a Post
 export const handleVotePost = (id, vote) => (dispatch) => upDownPost(id, vote)
   .then(({ data }) => {
-    dispatch(votePost({ data }));
+    dispatch(addPost({ data }));
   });
 
 // edit a Post
 export const handleEditPost = (id, title, body, author, category) => (dispatch) => changePost(id, {
   title, body, author, category,
 })
-  .then(({ post }) => {
-    dispatch(editPost(post));
+  .then(({ data }) => {
+    dispatch(addPost({ data }));
   });
 
 // increment the Comment Counter

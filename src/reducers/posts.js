@@ -1,11 +1,11 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-case-declarations */
 /* eslint-disable no-undef */
 /* eslint-disable no-debugger */
 import {
   GET_POSTS,
   ADD_POST,
   DELETE_POST,
-  VOTE_POST,
-  EDIT_POST,
   INCREMENT_COMMENT_COUNTER,
   DECREMENT_COMMENT_COUNTER,
 } from '../actions/posts';
@@ -13,17 +13,10 @@ import {
 export default function posts(state = {}, action) {
   switch (action.type) {
     case GET_POSTS:
+      const { posts } = action;
       return {
         ...state,
-        ...action.posts,
-      };
-    case ADD_POST:
-      return {
-        ...state,
-        [action.post.id]: {
-          ...state[action.post.id],
-          ...action.post,
-        },
+        [posts.id]: posts,
       };
     case DELETE_POST: {
       const { id } = action.post;
@@ -32,25 +25,11 @@ export default function posts(state = {}, action) {
         remainingPosts,
       };
     }
-    case VOTE_POST:
+    case ADD_POST:
       debugger;
       return {
         ...state,
-        [action.post.data.id]: {
-          ...state[action.post.data.id],
-          ...action.post,
-        },
-      };
-    case EDIT_POST:
-      return {
-        ...state,
-        [action.post.id]: {
-          ...state[action.post.id],
-          title: action.post.title,
-          body: action.post.body,
-          author: action.post.author,
-          category: action.post.category,
-        },
+        [action.post.data.id]: action.post.data,
       };
     case INCREMENT_COMMENT_COUNTER:
       return {

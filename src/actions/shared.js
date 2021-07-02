@@ -3,8 +3,17 @@ import { getPosts } from './posts';
 import { getCategories } from './categories';
 import { getInitialData } from '../utils/API';
 
-export const handleInitialData = () => (dispatch) => getInitialData()
+/* export const handleInitialData = () => (dispatch) => getInitialData()
   .then(({ categories, posts }) => {
     dispatch(getCategories(categories));
     dispatch(getPosts(posts));
+  }); */
+
+export const handleInitialData = () => (dispatch) => getInitialData()
+  .then(({ categories, posts }) => {
+    dispatch(getCategories(categories));
+
+    posts.forEach((post) => {
+      dispatch(getPosts(post));
+    });
   });

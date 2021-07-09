@@ -7,7 +7,7 @@ import React from 'react';
 /* import { useSelector, useDispatch } from 'react-redux'; */
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { handleVotePost } from '../actions/posts';
+import { handleVotePost, handleDeletePost, handleAddPost } from '../actions/posts';
 
 function Post({ post }) {
   const dispatch = useDispatch();
@@ -23,6 +23,14 @@ function Post({ post }) {
 
   const handleClickOnDownVoteButton = () => {
     dispatch(handleVotePost(post.id, 'downVote'));
+  };
+
+  const handleClickOnDeleteButton = () => {
+    dispatch(handleDeletePost(post.id));
+  };
+
+  const handleClickOnEditButton = () => {
+    dispatch(handleAddPost(post));
   };
 
   return (
@@ -62,6 +70,12 @@ function Post({ post }) {
       <br />
       {' '}
       {`${post.commentCount} comments`}
+      <button className="delete-button" type="button" onClick={handleClickOnDeleteButton}>
+        Delete
+      </button>
+      <button className="edit-button" type="button" onClick={handleClickOnEditButton}>
+        Edit
+      </button>
       <br />
     </div>
   );

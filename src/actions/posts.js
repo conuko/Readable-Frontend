@@ -2,7 +2,6 @@
 import {
   getPostsByCategory,
   createPost,
-  changePost,
   upDownPost,
   removePost,
   countComment,
@@ -70,12 +69,14 @@ export const handleVotePost = (id, vote) => (dispatch) => upDownPost(id, vote)
   });
 
 // edit a Post
+/*
 export const handleEditPost = (id, title, body, author, category) => (dispatch) => changePost(id, {
   title, body, author, category,
 })
   .then(({ data }) => {
     dispatch(addPost({ data }));
   });
+*/
 
 // increment the Comment Counter
 export const handleIncrementCommentCounter = (id,

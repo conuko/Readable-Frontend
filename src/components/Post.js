@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 /* import { useSelector, useDispatch } from 'react-redux'; */
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
-import { handleVotePost, handleDeletePost, handleAddPost } from '../actions/posts';
+import { Link, Redirect } from 'react-router-dom';
+import { handleVotePost, handleDeletePost } from '../actions/posts';
 
 function Post({ post }) {
   const dispatch = useDispatch();
@@ -30,10 +30,6 @@ function Post({ post }) {
   const handleClickOnDeleteButton = () => {
     dispatch(handleDeletePost(post));
     setToHome(true);
-  };
-
-  const handleClickOnEditButton = () => {
-    dispatch(handleAddPost(post));
   };
 
   if (toHome === true) {
@@ -80,9 +76,11 @@ function Post({ post }) {
       <button className="delete-button" type="button" onClick={handleClickOnDeleteButton}>
         Delete
       </button>
-      <button className="edit-button" type="button" onClick={handleClickOnEditButton}>
-        Edit
-      </button>
+      <Link to="/">
+        <button className="edit-button" type="button">
+          Edit
+        </button>
+      </Link>
       <br />
     </div>
   );

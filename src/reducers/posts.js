@@ -18,19 +18,27 @@ export default function posts(state = {}, action) {
         ...state,
         [posts.id]: posts,
       };
-    case DELETE_POST: {
-      const { id } = action.post;
-      const { [id]: value, ...remainingPosts } = state;
-      return {
-        remainingPosts,
-      };
-    }
     case ADD_POST:
-      debugger;
       return {
         ...state,
         [action.post.data.id]: action.post.data,
       };
+      /*     case DELETE_POST: {
+      const { id } = action.post.data;
+      const { [id]: value, ...remainingPosts } = state;
+      return {
+        remainingPosts,
+      };
+    } */
+    case DELETE_POST: {
+      return {
+        ...state,
+        [action.post.id]: {
+          ...state[action.post.id],
+          deleted: true,
+        },
+      };
+    }
     case INCREMENT_COMMENT_COUNTER:
       return {
         ...state,

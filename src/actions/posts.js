@@ -57,10 +57,19 @@ export const handleAddPost = (newPost) => (dispatch) => createPost(newPost)
   });
 
 // delete a Post
-export const handleDeletePost = (id) => (dispatch) => removePost(id)
+/* export const handleDeletePost = (id) => (dispatch) => removePost(id)
   .then(({ post }) => {
     dispatch(deletePost(post));
-  });
+  }); */
+
+export const handleDeletePost = (post) => (dispatch) => {
+  dispatch(deletePost(post));
+  return removePost(post.id)
+    .catch((err) => {
+      console.log(err);
+      dispatch(addPost(post));
+    });
+};
 
 // upvote or downvote a Post
 export const handleVotePost = (id, vote) => (dispatch) => upDownPost(id, vote)

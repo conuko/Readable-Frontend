@@ -1,16 +1,18 @@
-/* eslint-disable no-debugger */
 /*
 The Posts at HomeView page.
 */
 
-import React from 'react';
+import React, { useState } from 'react';
 /* import { useSelector, useDispatch } from 'react-redux'; */
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { handleVotePost, handleDeletePost, handleAddPost } from '../actions/posts';
 
 function Post({ post }) {
   const dispatch = useDispatch();
+
+  const [toHome, setToHome] = useState(false);
 
   const postScore = post.voteScore;
   const postAuthor = post.author;
@@ -26,13 +28,17 @@ function Post({ post }) {
   };
 
   const handleClickOnDeleteButton = () => {
-    dispatch(handleDeletePost(post.id));
+    dispatch(handleDeletePost(post));
+    setToHome(true);
   };
 
   const handleClickOnEditButton = () => {
     dispatch(handleAddPost(post));
   };
 
+  if (toHome === true) {
+    return <Redirect to="/" />;
+  }
   return (
     <div className="post">
       {}
@@ -70,6 +76,7 @@ function Post({ post }) {
       <br />
       {' '}
       {`${post.commentCount} comments`}
+      <br />
       <button className="delete-button" type="button" onClick={handleClickOnDeleteButton}>
         Delete
       </button>

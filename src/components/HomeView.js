@@ -16,7 +16,6 @@ function HomeView() {
     dispatch(handleInitialData());
   }, []);
   const allPosts = useSelector((state) => Object.values(state.posts));
-  console.log(allPosts);
   const allCategories = useSelector((state) => Object.values(state.categories));
   return (
     <div>

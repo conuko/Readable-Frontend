@@ -76,7 +76,7 @@ function Post({ post }) {
       <button className="delete-button" type="button" onClick={handleClickOnDeleteButton}>
         Delete
       </button>
-      <Link to="/">
+      <Link to={`/post/edit/${post.id}`}>
         <button className="edit-button" type="button">
           Edit
         </button>

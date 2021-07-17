@@ -5,7 +5,8 @@ import { handleInitialData } from '../actions/shared';
 import HomeView from './HomeView';
 import PostDetailView from './PostDetailView';
 import CategoryView from './CategoryView';
-import CreateEditPostView from './CreateEditPostView';
+import CreatePost from './CreatePost';
+import EditPost from './EditPost';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,8 +19,8 @@ function App() {
         <Route path="/" exact component={HomeView} />
         <Route path="/post/:id" exact component={PostDetailView} />
         <Route path="/category/:category" exact component={CategoryView} />
-        <Route exact path="/add" component={CreateEditPostView} />
-        <Route exact path="/post/edit/:id" component={CreateEditPostView} />
+        <Route exact path="/add" component={CreatePost} />
+        <Route exact path="/post/edit/:id" component={EditPost} />
       </div>
     </Router>
 

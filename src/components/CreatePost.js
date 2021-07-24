@@ -60,14 +60,12 @@ function CreateEditPostView() {
         </label>
         <label>
           Category
-          <input
-            name="category"
-            type="text"
-            placeholder="Category"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            className="text-area"
-          />
+          <select name="category" onChange={(event) => setCategory(event.target.value)}>
+            <option value="">--Select a category--</option>
+            <option key="react" value="react">React</option>
+            <option key="redux" value="redux">Redux</option>
+            <option key="udacity" value="udacity">Udacity</option>
+          </select>
         </label>
         <label>
           Message

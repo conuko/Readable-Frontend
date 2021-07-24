@@ -23,7 +23,6 @@ function App() {
         <Route exact path="/post/edit/:id" component={EditPost} />
       </div>
     </Router>
-
   );
 }
 

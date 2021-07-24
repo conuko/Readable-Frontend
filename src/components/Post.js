@@ -66,9 +66,11 @@ function Post({ post }) {
       {postTitle}
       {' '}
       <br />
-      Category:
-      {' '}
-      {post.category}
+      <Link to={`/category/${post.category}`}>
+        <button type="button">
+          {post.category}
+        </button>
+      </Link>
       <br />
       {' '}
       {`${post.commentCount} comments`}

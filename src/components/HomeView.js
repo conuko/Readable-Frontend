@@ -6,6 +6,7 @@ order by voteScore and order by timestamp
 */
 
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import Post from './Post';
@@ -27,7 +28,11 @@ function HomeView() {
             <tr>
               {allCategories.map((category) => (
                 <th key={category.name}>
-                  {category.name}
+                  <Link to={`/category/${category.name}`}>
+                    <button className="category-button" type="button">
+                      {category.name}
+                    </button>
+                  </Link>
                 </th>
               ))}
             </tr>

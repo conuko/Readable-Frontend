@@ -23,13 +23,6 @@ export default function posts(state = {}, action) {
         ...state,
         [action.post.data.id]: action.post.data,
       };
-      /*     case DELETE_POST: {
-      const { id } = action.post.data;
-      const { [id]: value, ...remainingPosts } = state;
-      return {
-        remainingPosts,
-      };
-    } */
     case DELETE_POST: {
       return {
         ...state,

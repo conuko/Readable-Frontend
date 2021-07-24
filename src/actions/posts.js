@@ -52,7 +52,7 @@ export const handleGetPostByCategory = (category) => (dispatch) => getPostsByCat
 
 // add a Post
 export const handleAddPost = (newPost) => (dispatch) => createPost(newPost)
-  .then(({ post }) => {
+  .then((post) => {
     dispatch(addPost(post));
   });
 

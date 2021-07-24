@@ -40,7 +40,7 @@ export function createPost({
   title, body, author, category,
 }) {
   const data = {
-    id: generateID,
+    id: generateID(),
     timestamp: Date.now(),
     title,
     body,

@@ -6,18 +6,36 @@
 */
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { handleAddPost } from '../actions/posts';
+// import { generateID } from '../utils/API';
 
 function CreateEditPostView() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [postTitle, setPostTitle] = useState('');
   const [username, setUsername] = useState('');
   const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
 
+  const handleSubmit = (event) => {
+    const post = {
+      title: postTitle,
+      body: message,
+      author: username,
+      category,
+    };
+    event.preventDefault();
+    dispatch(handleAddPost(post));
+    history.push('/');
+  };
+
   return (
     <div>
       <h1>Add a new Post</h1>
-      <form className="new-post">
+      <form className="new-post" onSubmit={handleSubmit}>
         <label>
           Post Title
           <input
@@ -25,7 +43,7 @@ function CreateEditPostView() {
             type="text"
             placeholder="Title"
             value={postTitle}
-            onChange={(e) => setPostTitle(e.target.value)}
+            onChange={(event) => setPostTitle(event.target.value)}
             className="text-area"
           />
         </label>
@@ -36,7 +54,7 @@ function CreateEditPostView() {
             type="text"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(event) => setUsername(event.target.value)}
             className="text-area"
           />
         </label>
@@ -47,7 +65,7 @@ function CreateEditPostView() {
             type="text"
             placeholder="Category"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(event) => setCategory(event.target.value)}
             className="text-area"
           />
         </label>
@@ -59,7 +77,7 @@ function CreateEditPostView() {
             placeholder="Your Text"
             maxLength={280}
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(event) => setMessage(event.target.value)}
             className="text-area"
           />
         </label>

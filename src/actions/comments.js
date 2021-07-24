@@ -46,10 +46,8 @@ export const handleGetComments = (postId) => (dispatch) => getComments(postId)
     dispatch(getPostComments(comments));
   });
 
-export const handleAddComment = (
-  postId, body, author,
-) => (dispatch) => createComment(postId, { body, author })
-  .then(({ comment }) => {
+export const handleAddComment = (newComment) => (dispatch) => createComment(newComment)
+  .then((comment) => {
     dispatch(addComment(comment));
   });
 

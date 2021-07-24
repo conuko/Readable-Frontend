@@ -61,9 +61,9 @@ function Post({ post }) {
       {postDate}
       {' '}
       <br />
-      Title:
-      {' '}
-      {postTitle}
+      <Link to={`/post/${post.id}`}>
+        {postTitle}
+      </Link>
       {' '}
       <br />
       <Link to={`/category/${post.category}`}>

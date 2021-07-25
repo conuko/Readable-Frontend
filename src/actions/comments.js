@@ -8,24 +8,11 @@ import {
 
 /* <==================== ACTIONS ====================> */
 export const ADD_COMMENT = 'ADD_COMMENT';
-export const VOTE_COMMENT = 'VOTE_COMMENT';
-export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 /* <==================== ACTION CREATORS ====================> */
 
 const addComment = (comment) => ({
   type: ADD_COMMENT,
-  comment,
-});
-
-const voteComment = (comment, option) => ({
-  type: VOTE_COMMENT,
-  comment,
-  option,
-});
-
-const deleteComment = (comment) => ({
-  type: DELETE_COMMENT,
   comment,
 });
 
@@ -50,11 +37,11 @@ export const handleUpdateComment = (
   });
 
 export const handleVoteComment = (commentId, vote) => (dispatch) => upDownComment(commentId, vote)
-  .then(({ comment, option }) => {
-    dispatch(voteComment(comment, option));
+  .then(({ data }) => {
+    dispatch(addComment(data));
   });
 
 export const handleDeleteComment = (commentId) => (dispatch) => removeComment(commentId)
-  .then(({ comment }) => {
-    dispatch(deleteComment(comment));
+  .then((comment) => {
+    dispatch(addComment(comment));
   });

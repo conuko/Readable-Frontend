@@ -3,7 +3,6 @@ The Posts at HomeView page.
 */
 
 import React, { useState } from 'react';
-/* import { useSelector, useDispatch } from 'react-redux'; */
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';

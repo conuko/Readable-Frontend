@@ -11,28 +11,37 @@ implement comment form however you want (inline, modal, etc.)
 - comments should also have controls for editing or deleting
 */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { handleDeletePost } from '../actions/posts';
-import { handleAddComment } from '../actions/comments';
+import { handleGetComments, handleAddComment } from '../actions/comments';
+import Comment from './Comment';
 
 function PostDetailView(props) {
   const history = useHistory();
+  const { id } = props.match.params;
   const dispatch = useDispatch();
+
+  // get all comments from the store:
+  useEffect(() => {
+    dispatch(handleGetComments(id));
+  }, []);
 
   const [username, setUsername] = useState('');
   const [comment, setComment] = useState('');
 
-  const { id } = props.match.params;
+  // store the posts from the state inside a variable
   const allPosts = useSelector((state) => Object.values(state.posts));
   const postToRender = allPosts.filter((post) => (post.id === id));
 
+  // store the comments from the state inside a variable
   const allComments = useSelector((state) => Object.values(state.comments));
   let commentsToRender = [];
   commentsToRender = allComments.filter((com) => (com.parentId === id));
-  console.log(commentsToRender);
+  console.log(`Comments to render: ${commentsToRender}`);
 
+  // handle submit for adding a new comment to the store:
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -41,8 +50,6 @@ function PostDetailView(props) {
     };
     dispatch(handleAddComment(data));
   };
-
-  // TO DO: CREATE A COMMENT COMPONENT, IMPORT IT HERE AND MAP OVER THE COMMENTS!!!!
 
   return (
     <div>
@@ -66,9 +73,15 @@ function PostDetailView(props) {
           <p>{`${post.commentCount} Comments`}</p>
         </div>
       ))}
+
+      {commentsToRender.map((comm) => (
+        <Comment key={comm.id} comment={comm} />
+      ))}
+
       <form className="new-comment" onSubmit={handleSubmit}>
         <label>
           Add a comment:
+          <br />
           <input
             name="username"
             type="text"
@@ -76,7 +89,8 @@ function PostDetailView(props) {
             value={username}
             onChange={(event) => setUsername(event.target.value)}
           />
-          <input
+          <br />
+          <textarea
             name="comment"
             type="text"
             placeholder="add a comment..."

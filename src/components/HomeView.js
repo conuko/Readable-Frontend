@@ -41,13 +41,9 @@ function HomeView() {
       </div>
 
       <h2>{`${allPosts.length} Posts`}</h2>
-      <ul className="posts-list">
-        {allPosts.map((post) => (
-          <li key={post.id}>
-            <Post post={post} />
-          </li>
-        ))}
-      </ul>
+      {allPosts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
     </div>
   );
 }

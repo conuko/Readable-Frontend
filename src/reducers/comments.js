@@ -1,6 +1,5 @@
 import {
   ADD_COMMENT,
-  UPDATE_COMMENT,
   VOTE_COMMENT,
   DELETE_COMMENT,
 } from '../actions/comments';
@@ -11,15 +10,6 @@ export default function comments(state = {}, action) {
       return {
         ...state,
         [action.comment.id]: action.comment,
-      };
-    case UPDATE_COMMENT:
-      return {
-        ...state,
-        [action.comment.id]: {
-          ...state[action.comment.id],
-          body: action.comment.body,
-          author: action.comment.author,
-        },
       };
     case VOTE_COMMENT:
       return {

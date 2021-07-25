@@ -28,6 +28,11 @@ function PostDetailView(props) {
   const allPosts = useSelector((state) => Object.values(state.posts));
   const postToRender = allPosts.filter((post) => (post.id === id));
 
+  const allComments = useSelector((state) => Object.values(state.comments));
+  let commentsToRender = [];
+  commentsToRender = allComments.filter((com) => (com.parentId === id));
+  console.log(commentsToRender);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -59,34 +64,34 @@ function PostDetailView(props) {
             <button type="button">Edit</button>
           </Link>
           <p>{`${post.commentCount} Comments`}</p>
-          <form className="new-comment" onSubmit={handleSubmit}>
-            <label>
-              Add a comment:
-              <input
-                name="username"
-                type="text"
-                placeholder="your username"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-              />
-              <input
-                name="comment"
-                type="text"
-                placeholder="add a comment..."
-                value={comment}
-                onChange={(event) => setComment(event.target.value)}
-              />
-            </label>
-            <button
-              className="submit-button"
-              type="submit"
-              disabled={username === '' || comment === ''}
-            >
-              Submit
-            </button>
-          </form>
         </div>
       ))}
+      <form className="new-comment" onSubmit={handleSubmit}>
+        <label>
+          Add a comment:
+          <input
+            name="username"
+            type="text"
+            placeholder="your username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+          <input
+            name="comment"
+            type="text"
+            placeholder="add a comment..."
+            value={comment}
+            onChange={(event) => setComment(event.target.value)}
+          />
+        </label>
+        <button
+          className="submit-button"
+          type="submit"
+          disabled={username === '' || comment === ''}
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 }

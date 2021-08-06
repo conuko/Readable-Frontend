@@ -24,13 +24,13 @@ function PostDetailView(props) {
   const { id } = props.match.params;
   const dispatch = useDispatch();
 
+  const [username, setUsername] = useState('');
+  const [comment, setComment] = useState('');
+
   // get all comments from the store:
   useEffect(() => {
     dispatch(handleGetComments(id));
   }, []);
-
-  const [username, setUsername] = useState('');
-  const [comment, setComment] = useState('');
 
   // store the posts from the state inside a variable
   const allPosts = useSelector((state) => Object.values(state.posts));
@@ -55,7 +55,6 @@ function PostDetailView(props) {
     setComment('');
     setUsername('');
     // refresh the page:
-    history.push('/');
   };
 
   return (

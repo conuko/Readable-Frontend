@@ -15,7 +15,7 @@ function CategoryView(props) {
   postsToRender = allPosts.filter((post) => post.category === category);
 
   return (
-    <div>
+    <div className="bg-green-500 bg-opacity-10">
       <h2>{ category }</h2>
       <h2>{`${postsToRender.length} Posts`}</h2>
       <ul className="posts-list">

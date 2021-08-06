@@ -83,14 +83,15 @@ export function getComments(postId) {
 }
 
 // create a Comment
-export function createComment(postId, { body, author }) {
-  return axios.post('/comments', {
-    id: generateID,
-    parentId: postId,
+export function createComment({ parentId, body, author }) {
+  const data = {
+    id: generateID(),
     timestamp: Date.now(),
+    parentId,
     body,
     author,
-  });
+  };
+  return axios.post('/comments', data);
 }
 
 // edit a Comment

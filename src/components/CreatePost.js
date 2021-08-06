@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 /*
@@ -21,6 +22,7 @@ function CreateEditPostView() {
   const [message, setMessage] = useState('');
 
   const handleSubmit = (event) => {
+    debugger;
     const post = {
       title: postTitle,
       body: message,

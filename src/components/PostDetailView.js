@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/destructuring-assignment */
@@ -43,12 +44,18 @@ function PostDetailView(props) {
 
   // handle submit for adding a new comment to the store:
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = {
+    const comm = {
+      parentId: id,
       body: comment,
       author: username,
     };
-    dispatch(handleAddComment(data));
+    event.preventDefault();
+    dispatch(handleAddComment(comm));
+    // empty the components state:
+    setComment('');
+    setUsername('');
+    // refresh the page:
+    history.push('/');
   };
 
   return (

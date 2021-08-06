@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import {
   ADD_COMMENT,
 } from '../actions/comments';

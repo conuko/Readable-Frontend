@@ -19,10 +19,10 @@ function HomeView() {
   const allPosts = useSelector((state) => Object.values(state.posts));
   const allCategories = useSelector((state) => Object.values(state.categories));
   return (
-    <div>
-      <h1>Home View</h1>
-      <h2>Categories</h2>
-      <div className="categories-container">
+    <div className="flex flex-col">
+      <h1 className="w-full flex-none text-2xl leading-7 mb-2 font-bold text-lemon bg-black text-center">Home View</h1>
+      <h2 className="w-full flex-none text-2xl leading-7 mb-2 font-bold text-black bg-lemon text-center">Categories</h2>
+      <div className="flex flex-col">
         <table className="categories-table">
           <tbody>
             <tr>
@@ -41,9 +41,11 @@ function HomeView() {
       </div>
 
       <h2>{`${allPosts.length} Posts`}</h2>
-      {allPosts.map((post) => (
-        <Post key={post.id} post={post} />
-      ))}
+      <div className="flex flex-col">
+        {allPosts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   );
 }

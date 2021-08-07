@@ -1241,6 +1241,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@headlessui/react@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.4.0.tgz#c6d424d8ab10ac925e4423d7f3cbab02c30d736a"
+  integrity sha512-C+FmBVF6YGvqcEI5fa2dfVbEaXr2RGR6Kw1E5HXIISIZEfsrH/yuCgsjWw5nlRF9vbCxmQ/EKs64GAdKeb8gCw==
+
 "@imaginary-cloud/eslint-config-react@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@imaginary-cloud/eslint-config-react/-/eslint-config-react-1.0.1.tgz#f0a5783f2570440c16c9a31650ef1d76850771ab"

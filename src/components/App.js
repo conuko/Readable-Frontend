@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import HomeView from './HomeView';
+import Navbar from './Navbar';
 import PostDetailView from './PostDetailView';
 import CategoryView from './CategoryView';
 import CreatePost from './CreatePost';
@@ -15,6 +16,7 @@ function App() {
   });
   return (
     <Router>
+      <Navbar />
       <div className="App">
         <Route path="/" exact component={HomeView} />
         <Route path="/post/:id" exact component={PostDetailView} />

@@ -51,13 +51,19 @@ export function createPost({
 }
 
 // edit a Post
-/* export function changePost(id, {
+export function changePost(id, {
   title, body, author, category,
 }) {
-  return axios.put(`/posts/${id}`, {
-    title, body, author, category,
-  });
-} */
+  const data = {
+    id,
+    timestamp: Date.now(),
+    title,
+    body,
+    author,
+    category,
+  };
+  return axios.put(`/posts/${id}`, data);
+}
 
 // vote a Post
 export function upDownPost(id, vote) {

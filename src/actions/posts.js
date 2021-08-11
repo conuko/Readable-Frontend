@@ -5,6 +5,7 @@ import {
   upDownPost,
   removePost,
   countComment,
+  changePost,
 } from '../utils/API';
 
 /* <==================== ACTIONS ====================> */
@@ -52,6 +53,12 @@ export const handleGetPostByCategory = (category) => (dispatch) => getPostsByCat
 
 // add a Post
 export const handleAddPost = (newPost) => (dispatch) => createPost(newPost)
+  .then((post) => {
+    dispatch(addPost(post));
+  });
+
+// edit a Post
+export const handleEditPost = (editedPost) => (dispatch) => changePost(editedPost)
   .then((post) => {
     dispatch(addPost(post));
   });

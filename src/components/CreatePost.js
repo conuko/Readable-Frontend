@@ -12,7 +12,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { handleAddPost } from '../actions/posts';
 // import { generateID } from '../utils/API';
 
-function CreateEditPostView() {
+function CreatePostView() {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -98,4 +98,4 @@ function CreateEditPostView() {
   );
 }
 
-export default CreateEditPostView;
+export default CreatePostView;

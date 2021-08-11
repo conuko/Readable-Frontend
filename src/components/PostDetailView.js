@@ -40,7 +40,6 @@ function PostDetailView(props) {
   const allComments = useSelector((state) => Object.values(state.comments));
   let commentsToRender = [];
   commentsToRender = allComments.filter((com) => (com.parentId === id));
-  console.log(`Comments to render: ${commentsToRender}`);
 
   // handle submit for adding a new comment to the store:
   const handleSubmit = (event) => {

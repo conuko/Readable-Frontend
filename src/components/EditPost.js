@@ -74,7 +74,7 @@ function EditPostView(props) {
         <label>
           Category
           <select name="category" onChange={(event) => setCategory(event.target.value)}>
-            <option value="">--Select a category--</option>
+            <option value={category}>{category}</option>
             <option key="react" value="react">React</option>
             <option key="redux" value="redux">Redux</option>
             <option key="udacity" value="udacity">Udacity</option>

@@ -51,8 +51,8 @@ export function createPost({
 }
 
 // edit a Post
-export function changePost(id, {
-  title, body, author, category,
+export function changePost({
+  id, title, body, author, category,
 }) {
   const data = {
     id,

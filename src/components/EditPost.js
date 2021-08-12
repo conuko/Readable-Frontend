@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { handleAddPost } from '../actions/posts';
+import { handleEditPost } from '../actions/posts';
 
 function EditPostView(props) {
   // get the post id from the URL:
@@ -41,7 +41,7 @@ function EditPostView(props) {
       id,
     };
     event.preventDefault();
-    dispatch(handleAddPost(post));
+    dispatch(handleEditPost(post));
     history.push('/');
   };
 

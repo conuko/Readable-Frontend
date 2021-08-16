@@ -26,7 +26,7 @@ function HomeView() {
           <tr className="flex flex-row">
             {allCategories.map((category) => (
               <th className="flex-auto flex justify-center" key={category.name}>
-                <Link className="w-1/2 flex items-center justify-center font-bold bg-lime-300 text-black border border-black shadow-offset-black" to={`/category/${category.name}`}>
+                <Link className="w-1/2 flex items-center justify-center font-bold bg-lime-300 text-black border border-black shadow-offset-black hover:bg-lime-500" to={`/category/${category.name}`}>
                   <button className="p-2 text-xs sm:text-xs md:text-base uppercase font-bold" type="button">
                     {category.name}
                   </button>

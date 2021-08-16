@@ -15,9 +15,9 @@ function CategoryView(props) {
   postsToRender = allPosts.filter((post) => post.category === category);
 
   return (
-    <div className="bg-green-500 bg-opacity-10">
-      <h2>{ category }</h2>
-      <h2>{`${postsToRender.length} Posts`}</h2>
+    <div className="flex flex-col space-y-6">
+      <h2 className="text-2xl leading-7 mb-2 font-bold text-black text-center">{ category }</h2>
+      <h2 className="text-2xl leading-7 mb-2 font-bold text-black text-center">{`${postsToRender.length} ${postsToRender.length === 1 ? 'Post' : 'Posts'}`}</h2>
       <ul className="posts-list">
         {postsToRender.map((post) => (
           <li key={post.id}>

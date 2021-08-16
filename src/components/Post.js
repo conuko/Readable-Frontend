@@ -35,54 +35,56 @@ function Post({ post }) {
     return <Redirect to="/" />;
   }
   return (
-    <div className="post">
-      {}
-      Score:
-      {' '}
-      {postScore}
-      {' '}
-      <br />
-      <button className="upvote-button" type="button" onClick={handleClickOnUpVoteButton}>
-        Upvote
-      </button>
-      <br />
-      <button className="downvote-button" type="button" onClick={handleClickOnDownVoteButton}>
-        Downvote
-      </button>
-      <br />
-      Author:
-      {' '}
-      {postAuthor}
-      {' '}
-      <br />
-      Date:
-      {' '}
-      {postDate}
-      {' '}
-      <br />
-      <Link to={`/post/${post.id}`}>
-        {postTitle}
-      </Link>
-      {' '}
-      <br />
-      <Link to={`/category/${post.category}`}>
-        <button type="button">
-          {post.category}
+    <div className="w-full max-w-xs m-auto">
+      <div className="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
+        {}
+        Score:
+        {' '}
+        {postScore}
+        {' '}
+        <br />
+        <button className="upvote-button" type="button" onClick={handleClickOnUpVoteButton}>
+          Upvote
         </button>
-      </Link>
-      <br />
-      {' '}
-      {`${post.commentCount} comments`}
-      <br />
-      <button className="delete-button" type="button" onClick={handleClickOnDeleteButton}>
-        Delete
-      </button>
-      <Link to={`/post/edit/${post.id}`}>
-        <button className="edit-button" type="button">
-          Edit
+        <br />
+        <button className="downvote-button" type="button" onClick={handleClickOnDownVoteButton}>
+          Downvote
         </button>
-      </Link>
-      <br />
+        <br />
+        Author:
+        {' '}
+        {postAuthor}
+        {' '}
+        <br />
+        Date:
+        {' '}
+        {postDate}
+        {' '}
+        <br />
+        <Link to={`/post/${post.id}`}>
+          {postTitle}
+        </Link>
+        {' '}
+        <br />
+        <Link to={`/category/${post.category}`}>
+          <button type="button">
+            {post.category}
+          </button>
+        </Link>
+        <br />
+        {' '}
+        {`${post.commentCount} comments`}
+        <br />
+        <button className="delete-button" type="button" onClick={handleClickOnDeleteButton}>
+          Delete
+        </button>
+        <Link to={`/post/edit/${post.id}`}>
+          <button className="edit-button" type="button">
+            Edit
+          </button>
+        </Link>
+        <br />
+      </div>
     </div>
   );
 }

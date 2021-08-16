@@ -92,7 +92,7 @@ function CreatePostView() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="font-bold bg-lime-300 text-black uppercase border border-black shadow-offset-black hover:bg-lime-500 py-2 px-4 focus:outline-none focus:shadow-outline"
+              className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-2 px-4 focus:outline-none focus:shadow-outline"
               type="submit"
               disabled={postTitle === '' || username === '' || category === '' || message === ''}
             >

@@ -19,7 +19,7 @@ function HomeView() {
   /*   const allCategories = useSelector((state) => Object.values(state.categories)); */
   return (
     <div className="flex flex-col space-y-8">
-      <h2 className="text-2xl leading-7 mb-2 mt-10 font-bold text-black text-center">{`${allPosts.length} Posts`}</h2>
+      <h2 className="text-2xl leading-7 mb-2 mt-10 uppercase font-bold text-black text-center">{`${allPosts.length} Posts`}</h2>
       <div className="flex flex-col space-y-6">
         {allPosts.map((post) => (
           <Post key={post.id} post={post} />

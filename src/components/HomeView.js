@@ -6,7 +6,6 @@ order by voteScore and order by timestamp
 */
 
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import Post from './Post';
@@ -17,27 +16,10 @@ function HomeView() {
     dispatch(handleInitialData());
   }, []);
   const allPosts = useSelector((state) => Object.values(state.posts));
-  const allCategories = useSelector((state) => Object.values(state.categories));
+  /*   const allCategories = useSelector((state) => Object.values(state.categories)); */
   return (
     <div className="flex flex-col space-y-8">
-      <h2 className="mt-8 w-full flex-none text-2xl leading-7 mb-2 font-bold text-black text-center">Categories</h2>
-      <table className="categories-table">
-        <tbody className="flex-auto">
-          <tr className="flex flex-row">
-            {allCategories.map((category) => (
-              <th className="flex-auto flex justify-center" key={category.name}>
-                <Link className="w-1/2 flex items-center justify-center font-bold bg-lime-300 text-black border border-black shadow-offset-black hover:bg-lime-500" to={`/category/${category.name}`}>
-                  <button className="p-2 text-xs sm:text-xs md:text-base uppercase font-bold" type="button">
-                    {category.name}
-                  </button>
-                </Link>
-              </th>
-            ))}
-          </tr>
-        </tbody>
-      </table>
-
-      <h2 className="text-2xl leading-7 mb-2 font-bold text-black text-center">{`${allPosts.length} Posts`}</h2>
+      <h2 className="text-2xl leading-7 mb-2 mt-10 font-bold text-black text-center">{`${allPosts.length} Posts`}</h2>
       <div className="flex flex-col space-y-6">
         {allPosts.map((post) => (
           <Post key={post.id} post={post} />

@@ -35,14 +35,14 @@ function Post({ post }) {
     return <Redirect to="/" />;
   }
   return (
-    <div className="flex-none md:flex-1 w-full max-w-xs m-auto">
+    <div className="flex-none md:flex-1 w-full max-w-md md:max-w-5xl m-auto">
       <div className="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
         <div className="text-black-700 text-md mb-2">
-          <Link to={`/post/${post.id}`} className="block text-black-700 text-md font-bold mb-2">
+          <Link to={`/post/${post.id}`} className="block text-black-700 text-md md:text-xl font-bold mb-2 hover:text-gray-500">
             {postTitle}
           </Link>
-          <Link to={`/category/${post.category}`} className="block text-gray-700 text-md font-bold mb-2">
-            <button type="button">
+          <Link to={`/category/${post.category}`} className="block text-black-700 text-sm font-bold mb-2">
+            <button type="button" className="bg-gray-200 hover:bg-gray-300 p-1">
               {post.category}
             </button>
           </Link>
@@ -62,7 +62,7 @@ function Post({ post }) {
             {`${post.commentCount} comments`}
           </p>
         </div>
-        <div className="flex flex-col gap-1 items-center mb-4 mt-4">
+        <div className="flex flex-col gap-1 items-center md:items-start mb-4 mt-4">
           <p className={postScore >= 0 ? 'font-bold text-5xl text-lime-500' : 'font-bold text-5xl text-red-500'}>
             {postScore}
           </p>
@@ -79,7 +79,7 @@ function Post({ post }) {
             </button>
           </div>
         </div>
-        <div className="flex gap-6 justify-center">
+        <div className="flex gap-6 justify-center md:justify-start">
           <Link to={`/post/edit/${post.id}`}>
             <button
               className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-2 px-4 focus:outline-none focus:shadow-outline"

@@ -127,34 +127,40 @@ function PostDetailView(props) {
         <Comment key={comm.id} comment={comm} />
       ))}
 
-      <form className="new-comment" onSubmit={handleSubmit}>
-        <label>
-          Add a comment:
-          <br />
-          <input
-            name="username"
-            type="text"
-            placeholder="your username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-          <br />
-          <textarea
-            name="comment"
-            type="text"
-            placeholder="add a comment..."
-            value={comment}
-            onChange={(event) => setComment(event.target.value)}
-          />
-        </label>
-        <button
-          className="submit-button"
-          type="submit"
-          disabled={username === '' || comment === ''}
-        >
-          Submit
-        </button>
-      </form>
+      <div className="flex-none md:flex-1 w-full max-w-md md:max-w-5xl m-auto">
+        <div className="bg-white shadow-md px-8 pt-6 pb-6 mb-4">
+          <form className="flex flex-col" onSubmit={handleSubmit}>
+            <label className="flex flex-col text-black-700 text-md font-bold mb-2">
+              <p className="mb-4">Add a comment</p>
+              <input
+                className="shadow appearance-none border w-120 py-2 px-3 text-gray-700 leading-tight hover:border-lime-300 focus:outline-none focus:border-lime-500 mb-2"
+                name="username"
+                type="text"
+                placeholder="your username"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
+              <textarea
+                className="shadow appearance-none border w-120 py-2 px-3 text-gray-700 leading-tight hover:border-lime-300 focus:outline-none focus:border-lime-500 mb-2"
+                name="comment"
+                type="text"
+                placeholder="add a comment..."
+                value={comment}
+                onChange={(event) => setComment(event.target.value)}
+              />
+            </label>
+            <div className="flex gap-6 justify-center md:justify-start">
+              <button
+                className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-1 px-3 focus:outline-none focus:shadow-outline"
+                type="submit"
+                disabled={username === '' || comment === ''}
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

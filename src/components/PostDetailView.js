@@ -116,7 +116,7 @@ function PostDetailView(props) {
                 type="button"
                 onClick={() => dispatch(handleDeletePost(post)) && history.push('/')}
               >
-                Del
+                Delete
               </button>
             </div>
           </div>

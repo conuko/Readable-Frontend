@@ -93,7 +93,7 @@ function Post({ post }) {
             type="button"
             onClick={handleClickOnDeleteButton}
           >
-            Del
+            Delete
           </button>
         </div>
       </div>

@@ -105,14 +105,14 @@ function PostDetailView(props) {
             <div className="flex gap-6 justify-center md:justify-start">
               <Link to={`/post/edit/${post.id}`}>
                 <button
-                  className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-2 px-4 focus:outline-none focus:shadow-outline"
+                  className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-2 px-4 focus:outline-none focus:shadow-outline active:shadow-none"
                   type="button"
                 >
                   Edit
                 </button>
               </Link>
               <button
-                className="font-bold bg-red-400 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-red-600 py-2 px-4 focus:outline-none focus:shadow-outline"
+                className="font-bold bg-red-400 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-red-600 py-2 px-4 focus:outline-none focus:shadow-outline active:shadow-none"
                 type="button"
                 onClick={() => dispatch(handleDeletePost(post)) && history.push('/')}
               >
@@ -151,7 +151,7 @@ function PostDetailView(props) {
             </label>
             <div className="flex gap-6 justify-center md:justify-start">
               <button
-                className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-1 px-3 focus:outline-none focus:shadow-outline"
+                className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-1 px-3 focus:outline-none focus:shadow-outline disabled:opacity-50 active:shadow-none"
                 type="submit"
                 disabled={username === '' || comment === ''}
               >

@@ -62,7 +62,7 @@ function Comment({ comment }) {
           </div>
         </div>
         <div className="flex gap-6 justify-center md:justify-start">
-          <button className="font-bold bg-red-400 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-red-600 py-1 px-3 focus:outline-none focus:shadow-outline" type="button" onClick={handleClickOnDeleteButton}>Delete</button>
+          <button className="font-bold bg-red-400 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-red-600 py-1 px-3 focus:outline-none focus:shadow-outline active:shadow-none" type="button" onClick={handleClickOnDeleteButton}>Delete</button>
         </div>
       </div>
     </div>

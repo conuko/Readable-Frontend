@@ -79,7 +79,7 @@ function CreatePostView() {
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
               Message
-              <input
+              <textarea
                 className="shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight hover:border-lime-300 focus:outline-none focus:border-lime-500"
                 name="message"
                 type="text"
@@ -92,7 +92,7 @@ function CreatePostView() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-2 px-4 focus:outline-none focus:shadow-outline"
+              className="font-bold bg-lime-300 text-black uppercase text-sm border border-black shadow-offset-black hover:bg-lime-500 py-2 px-4 disabled:opacity-50 active:shadow-none"
               type="submit"
               disabled={postTitle === '' || username === '' || category === '' || message === ''}
             >

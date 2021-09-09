@@ -25,14 +25,12 @@ function Navbar() {
                   >
                     Dashboard
                   </a>
-
                   <a
                     href="/category/react"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium"
                   >
                     React
                   </a>
-
                   <a
                     href="/category/redux"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 text-sm font-medium"
@@ -100,7 +98,6 @@ function Navbar() {
             </div>
           </div>
         </div>
-
         <Transition
           show={isOpen}
           enter="transition ease-out duration-100 transform"
@@ -119,7 +116,6 @@ function Navbar() {
                 >
                   Dashboard
                 </a>
-
                 <a
                   href="/category/react"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 text-base font-medium"
@@ -140,7 +136,6 @@ function Navbar() {
                 >
                   Udacity
                 </a>
-
                 <a
                   href="/add"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 text-base font-medium"

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import HomeView from './HomeView';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import PostDetailView from './PostDetailView';
 import CategoryView from './CategoryView';
 import CreatePost from './CreatePost';
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/add" component={CreatePost} />
         <Route exact path="/post/edit/:id" component={EditPost} />
       </div>
+      <Footer />
     </Router>
   );
 }

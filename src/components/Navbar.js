@@ -21,7 +21,7 @@ function Navbar() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <a
                     href="/"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 text-sm font-medium"
+                    className=" hover:bg-gray-700 text-gray-300 hover:text-white px-3 py-2 text-sm font-medium"
                   >
                     Dashboard
                   </a>

@@ -1,8 +1,24 @@
-# Getting Started with Create React App
+# Readable
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Readable is a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
 
-## Available Scripts
+The app is built with React and Redux and styled with Tailwind.css.
+The API is built with Axios.
+
+## Summary
+
+- [Getting Started](#getting-started)
+  - [Yarn Star](#yarn-start)
+  - [Yarn Build](#yarn-build)
+  - [Yarn Eject](#yarn-eject)
+- [Views of the App](#views-of-the-app)
+- [Data](#views-of-the-app)
+- [Create React App](#create-react-app)
+- [License](#license)
+
+## Getting Started
+
+To get started right away:
 
 In the project directory, you can run:
 
@@ -13,11 +29,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
@@ -39,32 +50,68 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Views of the app
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The Would You Rather app has a couple of different pages:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Home at page "/".
+- Post detailed at page "/post/:id".
+- Edit Post at page "/post/edit/:id".
+- Add new Post at page "/add".
+- Categories:
+    - React  at "/category/react"
+    - Redux at "/category/redux"
+    - Udacity at "/category/udacity"
 
-### Code Splitting
+## Data
+There are three types of objects stored on the server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Categories
+- Posts
+- Comments
 
-### Analyzing the Bundle Size
+### Categories
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The server supports a small, fixed number of categories that users can put posts into. Categories are simple objects containing a name and a URL path (usually the same string). The server does not have methods for creating/modifying/deleting these categories. If you wish to add to the categories for your app, simply add your desired object to the Array in categories.js in the provided server.
 
-### Making a Progressive Web App
+### Posts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Posts are the building blocks of your application. Posts include:
 
-### Advanced Configuration
+| Attribute | Type    | Description                                                                                      |
+| --------- | ------  | ------------------------------------------------------------------------------------------------ |
+| id        | String  | Unique identifier                                                                                |
+| timestamp | Integer | Time created - default data tracks this in Unix time. You can use Date.now() to get this number  |
+| title     | String  | Post title                                                                                       |
+| author    | String  | Post author                                                                                      |
+| category  | String  | Should be one of the categories provided by the server                                           |
+| voteScore | Integer | Net votes the post has received (default: 1)                                                     |
+| deleted   | Boolean | Flag if post has been 'deleted' (inaccessible by the front end), (default: false)                |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Comments
 
-### Deployment
+Comments are attached to parent posts. They include:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Attribute       | Type    | Description                                                                                      |
+| --------------- | ------  | ------------------------------------------------------------------------------------------------ |
+| id              | String  | Unique identifier                                                                                |
+| parentId        | String  | id of the parent post                                                                            |
+| timestamp       | Integer | Time created - default data tracks this in Unix time. You can use Date.now() to get this number  |
+| body            | String  | Comment body                                                                                     |
+| author          | String  | Comment author                                                                                   |
+| voteScore       | Integer | Net votes the post has received (default: 1)                                                     |
+| deleted         | Boolean | Flag if post has been 'deleted' (inaccessible by the front end), (default: false)                |
+| parentDeleted   | Boolean | Flag for when the the parent post was deleted, but the comment itself was not.                   |
 
-### `yarn build` fails to minify
+This application is anonymous, with _no_ authentication or authorization. There are no user objects, and comments and posts accept any username/name for creation and editing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The server is very light weight. It performs zero data validation to enforce the above data types. Make sure you are using the correct types when sending requests to the server.
+
+## Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+## License
+
+MIT License - see the [LICENSE.md](LICENSE.md) file for
+details

@@ -13,6 +13,9 @@ The API is built with Axios.
   - [Yarn Eject](#yarn-eject)
 - [Views of the App](#views-of-the-app)
 - [Data](#views-of-the-app)
+  - [Categories](#categories)
+  - [Posts](#posts)
+  - [Comments](#comments)
 - [Create React App](#create-react-app)
 - [License](#license)
 

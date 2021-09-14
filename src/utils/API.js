@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Global axios defaults
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://peaceful-beyond-24800.herokuapp.com/';
 axios.defaults.headers.common.Authorization = 'whatever-you-want';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 

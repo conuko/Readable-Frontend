@@ -16,7 +16,7 @@ function App() {
     dispatch(handleInitialData());
   });
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Navbar />
       <div className="App">
         <Route path="/" exact component={HomeView} />

@@ -19,9 +19,9 @@ function App() {
     <Router basename={process.env.PUBLIC_URL}>
       <Navbar />
       <div className="App">
-        <Route path="/" exact component={HomeView} />
-        <Route path="/post/:id" exact component={PostDetailView} />
-        <Route path="/category/:category" exact component={CategoryView} />
+        <Route exact path="/" component={HomeView} />
+        <Route exact path="/post/:id" component={PostDetailView} />
+        <Route exact path="/category/:category" component={CategoryView} />
         <Route exact path="/add" component={CreatePost} />
         <Route exact path="/post/edit/:id" component={EditPost} />
       </div>

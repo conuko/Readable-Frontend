@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SignIn() {
+function SignInView() {
   return (
     <div className="sign-in-and-sign-out">
       SIGN IN
@@ -8,4 +8,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignInView;

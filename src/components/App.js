@@ -9,6 +9,7 @@ import PostDetailView from './PostDetailView';
 import CategoryView from './CategoryView';
 import CreatePost from './CreatePost';
 import EditPost from './EditPost';
+import SignInView from './SignInView';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
       <div className="App">
         <Route exact path="/" component={HomeView} />
+        <Route exact path="/signin" component={SignInView} />
         <Route exact path="/post/:id" component={PostDetailView} />
         <Route exact path="/category/:category" component={CategoryView} />
         <Route exact path="/add" component={CreatePost} />

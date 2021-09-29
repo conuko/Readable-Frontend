@@ -34,7 +34,7 @@ function CreatePostView() {
 
   return (
     <div className="flex h-screen justify-center">
-      <div className="w-full max-w-xs m-auto">
+      <div className="w-full max-w-md md:max-w-5xl m-auto">
         <form className="bg-white shadow-md px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="posttitle">
@@ -62,7 +62,7 @@ function CreatePostView() {
               />
             </label>
           </div>
-          <div className="mb-4 inline-block relative w-64">
+          <div className="mb-4 inline-block relative w-full">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
               Category
               <select className="block appearance-none w-full bg-white text-gray-700 leading-tight border hover:border-lime-300 px-4 py-2 pr-8 shadow cursor-pointer focus:outline-none focus:border-lime-500" name="category" onChange={(event) => setCategory(event.target.value)}>
@@ -71,7 +71,7 @@ function CreatePostView() {
                 <option key="redux" value="redux">Redux</option>
                 <option key="udacity" value="udacity">Udacity</option>
               </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 mt-2 text-gray-700">
                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
               </div>
             </label>

@@ -65,7 +65,7 @@ function CreatePostView() {
           <div className="mb-4 inline-block relative w-64">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
               Category
-              <select className="block appearance-none w-full bg-white text-gray-700 leading-tight border hover:border-lime-300 px-4 py-2 pr-8 shadow leading-tight focus:outline-none focus:border-lime-500" name="category" onChange={(event) => setCategory(event.target.value)}>
+              <select className="block appearance-none w-full bg-white text-gray-700 leading-tight border hover:border-lime-300 px-4 py-2 pr-8 shadow cursor-pointer focus:outline-none focus:border-lime-500" name="category" onChange={(event) => setCategory(event.target.value)}>
                 <option value="">--Select a category--</option>
                 <option key="react" value="react">React</option>
                 <option key="redux" value="redux">Redux</option>
